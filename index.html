@@ -103,6 +103,40 @@ ol.act li{counter-increment:a;position:relative;padding:15px 19px 15px 54px;back
 ol.act li::before{content:counter(a);position:absolute;left:19px;top:15px;font-family:"IBM Plex Mono",monospace;font-size:12.5px;font-weight:600;color:var(--accent)}
 ol.act b{color:var(--ink)}
 footer{margin-top:64px;padding-top:22px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted);max-width:76ch}
+
+.datestrip{display:grid;grid-template-columns:repeat(auto-fit,minmax(84px,1fr));gap:7px;margin:4px 0 0}
+.dcell{border:1px solid var(--line);border-radius:3px;padding:10px 8px;text-align:center;background:var(--surface)}
+.dcell .d{font-family:"IBM Plex Mono",monospace;font-size:12.5px;font-weight:600;color:var(--ink)}
+.dcell .s{font-size:10.5px;margin-top:4px;color:var(--muted);line-height:1.3}
+.dcell.no{background:var(--surface-2);opacity:.62}
+.dcell.yes{border-color:var(--warm);border-width:2px;background:var(--warm-soft)}
+.dcell.yes .s{color:var(--crit);font-weight:600}
+.nb{display:flex;flex-direction:column;gap:11px;margin-top:6px}
+.nbrow{display:grid;grid-template-columns:132px 1fr;align-items:center;gap:12px}
+.nbrow .lab{font-size:13.5px;color:var(--ink-2);text-align:right}
+.nbrow .lab b{display:block;color:var(--ink);font-size:14.5px}
+.nbtrack{position:relative;height:30px;background:var(--surface-2);border-radius:3px;overflow:hidden}
+.nbfill{position:absolute;inset:0 auto 0 0;display:flex;align-items:center;justify-content:flex-end;padding-right:11px;
+  font-family:"IBM Plex Mono",monospace;font-size:13px;font-weight:600;color:#fff;border-radius:3px}
+:root[data-theme="dark"] .nbfill,:root:not([data-theme="light"]) .nbfill{color:#06161b}
+.nbfill.a{background:var(--cold)}
+.nbfill.b{background:var(--accent)}
+.nbfill.c{background:var(--warm)}
+.bigfind{border:2px solid var(--warm);background:var(--warm-soft);border-radius:3px;padding:22px 26px;margin-top:24px}
+.bigfind h3{font-size:21px;font-weight:600;color:var(--ink);margin-bottom:8px}
+.bigfind p{margin:0;font-size:15px;color:var(--ink-2);max-width:72ch}
+.bigfind .huge{font-family:"IBM Plex Mono",monospace;font-size:31px;font-weight:600;color:var(--crit);display:block;margin:10px 0 4px}
+.corr{border-left:3px solid var(--crit);background:var(--surface-2);padding:16px 20px;border-radius:0 3px 3px 0;margin-top:20px}
+.corr p{margin:0;font-size:14.5px;color:var(--ink-2);max-width:72ch}
+.corr p+p{margin-top:9px}
+.corr b{color:var(--ink)}
+.pill{display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.06em;padding:3px 9px;
+  border-radius:11px;background:var(--accent-soft);color:var(--accent);font-weight:600;margin-left:8px;vertical-align:middle}
+.meth{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin-top:6px}
+.meth div{background:var(--surface);border:1px solid var(--line);border-radius:3px;padding:15px 17px}
+.meth .k{font-family:"IBM Plex Mono",monospace;font-size:21px;font-weight:600;color:var(--accent)}
+.meth .v{font-size:13px;color:var(--ink-2);margin-top:5px;line-height:1.45}
+
 @media (max-width:680px){
   body{font-size:15.5px}
   .axis{margin-left:104px;margin-right:84px}
@@ -120,23 +154,128 @@ footer{margin-top:64px;padding-top:22px;border-top:1px solid var(--line);font-si
 <header>
   <div class="eyebrow">Семейный разбор · 12 сентября 2026</div>
   <h1>Новый год 2027: куда ехать</h1>
-  <p class="sub">12 направлений, 18 предложенных туров и одна переменная, которая решает всё, — температура воды с 28 декабря по 9 января.</p>
+  <p class="sub">12 направлений, 18 предложенных туров, 63 проверенных отеля и живая выгрузка цен под состав семьи. Две переменные решают всё: температура воды и единственная дата вылета.</p>
   <div class="meta">
     <span><b>4 человека</b> · двое взрослых, дети 12 и 9 лет</span>
     <span><b>28–30 декабря</b> вылет из Казани</span>
     <span><b>до 1,15 млн ₽</b> на всё</span>
+    <span><b>цены проверены</b> 12.09.2026</span>
     <span><b>Требования:</b> тёплое море · две комнаты · детский клуб · бассейны для детей</span>
   </div>
 </header>
 
 <div class="verdict">
-  <h2>Пхукет. Вода <span class="num">29 °C</span> против <span class="num">23 °C</span> в Эмиратах</h2>
-  <p>«Чтобы вода была потеплее» разводит направления не на проценты, а вдвое по ощущению. В конце декабря Андаманское море держит 28,5–29,0 °C и почти не остывает за поездку. Персидский залив в те же дни — 22–24 °C и падает дальше. Это разница между «дети плавают» и «дети окунаются и бегут греться».</p>
-  <p>Из Казани в окно вылета 28–30 декабря на Пхукет идёт <b>ровно один рейс</b> — Nordwind 28 декабря, 21:00, прямой, 8 ч 50 мин. Он же закрывает условие «Новый год в отеле, а не в самолёте».</p>
+  <h2>Пхукет, 28 декабря, Centara Kata — <span class="num">1 122 069 ₽</span></h2>
+  <p>Цена проверена вживую 12 сентября: четверо, перелёт из Казани, 12 ночей, завтраки. Дешевле, чем предложил турагент за тот же отель и те же даты, — и с правильно заданным составом семьи.</p>
+  <p>Направление выбрано водой: Андаманское море в конце декабря держит <b>28,5–29,0 °C</b> против 22–24 °C в Персидском заливе — это разница между «дети плавают» и «дети окунаются и бегут греться». Дата выбрана не нами: из окна 26–30 декабря туры есть <b>только на 28-е</b>, это единственный чартер Nordwind.</p>
 </div>
 
 <section>
-  <div class="shead"><span class="n">01</span><h2>Сводная таблица направлений</h2></div>
+  <div class="shead"><span class="n">01</span><h2>Живая проверка цен<span class="pill">12.09.2026</span></h2></div>
+  <p class="lede">Всё, что ниже, — не оценка и не модель. Это снято с level.travel настоящим браузером под ваш точный состав: <b>2 взрослых + дети 9 и 12, вылет Казань, 28 декабря 2026</b>. Проверено по внутреннему ключу запроса — сайт считал именно эту семью, а не «трёх взрослых».</p>
+
+  <div class="meth">
+    <div><div class="k">63</div><div class="v">отеля Пхукета прогнано в три потока</div></div>
+    <div><div class="k">39</div><div class="v">имеют туры на 28 декабря</div></div>
+    <div><div class="k">24</div><div class="v">не имеют туров вообще</div></div>
+    <div><div class="k">1 дата</div><div class="v">из окна 26–30 декабря реально работает</div></div>
+  </div>
+
+  <h3 style="font-size:20px;font-weight:600;margin:38px 0 14px">Из вашего окна вылета работает только 28 декабря</h3>
+  <p class="lede">Календарь одинаковый у всех 63 отелей без исключения. Это прямое следствие единственного чартера Nordwind.</p>
+  <div class="datestrip">
+    <div class="dcell no"><div class="d">26 дек</div><div class="s">нет туров</div></div>
+    <div class="dcell no"><div class="d">27 дек</div><div class="s">нет туров</div></div>
+    <div class="dcell yes"><div class="d">28 дек</div><div class="s">есть</div></div>
+    <div class="dcell no"><div class="d">29 дек</div><div class="s">нет туров</div></div>
+    <div class="dcell no"><div class="d">30 дек</div><div class="s">нет туров</div></div>
+    <div class="dcell no"><div class="d">31 дек</div><div class="s">есть, но НГ<br>в самолёте</div></div>
+  </div>
+
+  <div class="corr">
+    <p><b>Придётся поправить прошлую версию этой страницы.</b> Два отеля, стоявшие здесь первыми номерами, на ваши даты не продаются вообще: <b>Katathani Phuket Beach Resort</b> и <b>Best Western Premier Bangtao</b> — у обоих «нет туров» с 26 по 30 декабря. Туда же <b>Kora Beach Resort</b> из подборки турагента.</p>
+    <p>Их сметы были расчётной моделью от рыночных якорей, и по фактической доступности они не сошлись. Ниже — только то, что реально продаётся сегодня.</p>
+  </div>
+
+  <h3 style="font-size:20px;font-weight:600;margin:38px 0 14px">Реальные цены на 28 декабря</h3>
+  <p class="lede">Цена за всю семью из четырёх человек, с перелётом из Казани, трансфером и страховкой.</p>
+  <div class="tw"><table>
+    <thead><tr><th>Отель</th><th>Пляж</th><th>11 ночей<br>до 8 янв</th><th>12 ночей<br>до 9 янв</th><th>Питание</th><th>Вариантов<br>размещения</th></tr></thead>
+    <tbody>
+      <tr class="pass"><td><strong>Centara Kata Resort</strong></td><td>Ката</td><td class="num">1 353 847</td><td class="num"><strong>1 122 069</strong></td><td>завтрак</td><td class="num">15</td></tr>
+      <tr><td>Centara Kata Resort</td><td>Ката</td><td class="num">1 453 711</td><td class="num">1 231 012</td><td>завтрак + ужин</td><td class="num">15</td></tr>
+      <tr><td><strong>Novotel Phuket Vintage Park</strong></td><td>Патонг, 3-я линия</td><td class="num">1 249 462</td><td class="num">—</td><td>от 1 007 019 без питания</td><td class="num">18</td></tr>
+      <tr><td>Novotel Phuket Resort Patong</td><td>Патонг</td><td class="num">1 004 518</td><td class="num">—</td><td>минимальный тариф</td><td class="num">6</td></tr>
+      <tr><td>Chanalai Flora Resort</td><td>Ката, 2-я линия</td><td class="num">1 517 471</td><td class="num">—</td><td>от 1 301 284 завтрак</td><td class="num">10</td></tr>
+      <tr class="out"><td>Katathani Phuket Beach</td><td>Ката Ной</td><td class="num" colspan="4"><span class="tag no">нет туров 26–30 декабря</span></td></tr>
+      <tr class="out"><td>Best Western Premier Bangtao</td><td>Банг Тао</td><td class="num" colspan="4"><span class="tag no">нет туров 26–30 декабря</span></td></tr>
+      <tr class="out"><td>Kora Beach Resort</td><td>Патонг</td><td class="num" colspan="4"><span class="tag no">нет туров 26–30 декабря</span></td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="bigfind">
+    <h3>Двенадцать ночей дешевле одиннадцати</h3>
+    <p>У Centara Kata вылет 28 декабря с возвратом <b>9 января</b> стоит меньше, чем тот же вылет с возвратом 8 января. На одну ночь больше — и дешевле на:</p>
+    <span class="huge">231 778 ₽</span>
+    <p>Это не сбой парсера: цена за ночь на сайте сходится с общей суммой до рубля во всех шести тарифах. Разные блоки мест на обратных рейсах — 9 января борт дешевле.</p>
+  </div>
+
+  <div class="nb" style="margin-top:26px">
+    <div class="nbrow"><div class="lab"><b>10 ночей</b>до 7 января</div><div class="nbtrack"><div class="nbfill a" style="width:94.2%">1 474 943 ₽</div></div></div>
+    <div class="nbrow"><div class="lab"><b>11 ночей</b>до 8 января</div><div class="nbtrack"><div class="nbfill b" style="width:86.5%">1 353 847 ₽</div></div></div>
+    <div class="nbrow"><div class="lab"><b>12 ночей</b>до 9 января</div><div class="nbtrack"><div class="nbfill c" style="width:71.7%">1 122 069 ₽</div></div></div>
+  </div>
+  <p style="font-size:13px;color:var(--muted);margin-top:12px">Centara Kata Resort, завтраки, 4 человека с перелётом. Шкала от 1 565 728 ₽ — максимального тарифа в выдаче.</p>
+
+  <h3 style="font-size:20px;font-weight:600;margin:38px 0 14px">Оптимум по цене и качеству</h3>
+  <div class="tw"><table>
+    <thead><tr><th>Параметр</th><th>Centara Kata Resort Phuket · 28.12 → 09.01</th></tr></thead>
+    <tbody>
+      <tr><td>Цена на четверых с перелётом</td><td class="num"><strong>1 122 069 ₽</strong> · 93 505 ₽ за ночь на семью</td></tr>
+      <tr><td>Кешбэк Т-Банка 4 %</td><td class="num">−44 883 ₽ обратно</td></tr>
+      <tr><td>Срок</td><td>12 ночей, Новый год в отеле</td></tr>
+      <tr><td>Питание</td><td>Завтраки. Полупансион +108 943 ₽</td></tr>
+      <tr><td>Пляж</td><td>Ката — пологий вход, спокойнее Патонга</td></tr>
+      <tr><td>Дети</td><td>Детский клуб, три бассейна, детский бассейн</td></tr>
+      <tr><td>Две комнаты</td><td><span class="tag warn">требует подтверждения</span> У отеля есть one bedroom premium suite (спальня + гостиная), но какая категория идёт по этой цене — из выдачи не видно</td></tr>
+      <tr><td>Против цены турагента</td><td class="num">у агента 1 156 925 ₽ на «3 взрослых + 1 ребёнок» → <strong>дешевле на 34 856 ₽</strong> и с верным составом</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 style="font-size:20px;font-weight:600;margin:38px 0 14px">Весь доступный рынок на 28 декабря</h3>
+  <p class="lede">25 отелей, где удалось снять цены. Первые строки дешёвые, но это городские и аэропортовые отели — ни моря рядом, ни детской базы.</p>
+  <div class="tw"><table>
+    <thead><tr><th>Отель</th><th>Минимум</th><th>Максимум</th><th>Тарифов</th><th>Замечание</th></tr></thead>
+    <tbody>
+      <tr class="out"><td>The Bell Airport Phuket</td><td class="num">831 707</td><td class="num">1 639 660</td><td class="num">8</td><td>отель при аэропорте</td></tr>
+      <tr class="out"><td>Blu Monkey Boutique Phuket Town</td><td class="num">866 457</td><td class="num">1 258 892</td><td class="num">6</td><td>город, не курорт</td></tr>
+      <tr class="out"><td>Destination Patong</td><td class="num">897 543</td><td class="num">1 281 618</td><td class="num">5</td><td>город</td></tr>
+      <tr class="out"><td>Ramada Plaza Chao Fah</td><td class="num">956 355</td><td class="num">1 343 293</td><td class="num">6</td><td>город</td></tr>
+      <tr class="out"><td>Royal Beach Residence</td><td class="num">971 222</td><td class="num">1 351 904</td><td class="num">4</td><td>апартаменты</td></tr>
+      <tr><td>Novotel Phuket Resort Patong</td><td class="num">1 004 518</td><td class="num">1 414 177</td><td class="num">6</td><td>курорт, Патонг</td></tr>
+      <tr><td>Novotel Phuket Vintage Park</td><td class="num">1 007 019</td><td class="num">1 406 062</td><td class="num">18</td><td>Патонг, 3-я линия</td></tr>
+      <tr class="pass"><td><strong>Centara Kata Resort</strong></td><td class="num"><strong>1 122 069</strong></td><td class="num">1 565 728</td><td class="num">15</td><td>детский клуб, Ката</td></tr>
+      <tr><td>Wekata Luxury</td><td class="num">1 116 708</td><td class="num">1 573 655</td><td class="num">8</td><td>Ката</td></tr>
+      <tr><td>Patong Lodge Hotel</td><td class="num">1 140 687</td><td class="num">1 514 179</td><td class="num">5</td><td>Патонг</td></tr>
+      <tr><td>The Marin Phuket</td><td class="num">1 233 596</td><td class="num">1 590 662</td><td class="num">8</td><td>Патонг</td></tr>
+      <tr><td>Chanalai Flora Resort</td><td class="num">1 301 284</td><td class="num">1 640 562</td><td class="num">10</td><td>Ката, 2-я линия</td></tr>
+      <tr><td>Avista Grande Karon MGallery</td><td class="num">1 379 420</td><td class="num">1 855 163</td><td class="num">8</td><td>Карон</td></tr>
+      <tr><td>Mida Grande Villas</td><td class="num">1 405 758</td><td class="num">1 546 856</td><td class="num">6</td><td>виллы</td></tr>
+      <tr><td>Pullman Arcadia Naithon</td><td class="num">1 504 844</td><td class="num">1 853 818</td><td class="num">8</td><td>Найтон</td></tr>
+      <tr><td>Outrigger Surin Beach</td><td class="num">1 515 825</td><td class="num">1 809 834</td><td class="num">4</td><td>Сурин</td></tr>
+      <tr><td>Renaissance Phuket</td><td class="num">1 840 534</td><td class="num">2 468 047</td><td class="num">8</td><td>Най Янг</td></tr>
+      <tr><td>Melia Phuket Mai Khao</td><td class="num">1 863 928</td><td class="num">2 219 620</td><td class="num">6</td><td>Май Као</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="note">
+    <p><b>Как это снято.</b> Капча не трогалась и не обходилась. У level.travel параметры поиска принимаются прямо в адресе страницы отеля: подставляется дата, число ночей, двое взрослых и возрасты детей — и сайт отдаёт выдачу именно на эту семью. Проверено по внутреннему ключу запроса, он раскодировался как <span style="font-family:'IBM Plex Mono',monospace;font-size:12.5px">2026-12-28 | 11 | 2 | 2 | 9,12</span>. Дальше 63 страницы прогнаны headless-браузером в три потока.</p>
+    <p><b>Чего в этих цифрах нет.</b> Названия категорий номеров вытащить не удалось — они подгружаются отдельным блоком. То есть цена подтверждена, а соответствие требованию «две комнаты» именно в этом тарифе — нет. Это главный вопрос к турагенту.</p>
+  </div>
+</section>
+
+<section>
+  <div class="shead"><span class="n">02</span><h2>Сводная таблица направлений</h2></div>
   <p class="lede">Двенадцать проверенных направлений против четырёх требований. «Две комнаты» означает отдельную спальню для детей: family room и студия не считаются.</p>
   <div class="ctl">
     <button class="btn" id="filt" aria-pressed="false" type="button">Показать только проходящие</button>
@@ -164,7 +303,7 @@ footer{margin-top:64px;padding-top:22px;border-top:1px solid var(--line);font-si
 </section>
 
 <section>
-  <div class="shead"><span class="n">02</span><h2>Как меняется вода за поездку</h2></div>
+  <div class="shead"><span class="n">03</span><h2>Как меняется вода за поездку</h2></div>
   <p class="lede">Левый край полосы — начало января, правый — конец декабря. Тропики почти не двигаются. Залив и Красное море остывают именно в ваши даты.</p>
   <div class="scale">
     <div class="axis"><span style="left:0%">20°</span><span style="left:20%">22°</span><span style="left:40%">24°</span><span style="left:60%">26°</span><span style="left:80%">28°</span><span style="left:100%">30°</span></div>
@@ -191,10 +330,10 @@ footer{margin-top:64px;padding-top:22px;border-top:1px solid var(--line);font-si
 </section>
 
 <section>
-  <div class="shead"><span class="n">03</span><h2>Три финалиста: разбор сметы</h2></div>
-  <p class="lede">Все три закрывают четыре требования разом. Суммы — полная стоимость поездки на четверых, включая перелёт, питание, обязательный гала-ужин и карманные.</p>
+  <div class="shead"><span class="n">04</span><h2>Первоначальные сметы — до проверки доступности</h2></div>
+  <div class="corr" style="margin:0 0 24px"><p><b>Раздел оставлен как история расчёта.</b> Это была модель от рыночных якорей, построенная до того, как удалось снять живые цены. Проверка показала: <b>Katathani и Best Western Premier Bangtao на 26–30 декабря не продаются вообще</b>. Актуальные цифры — в разделе 01. Здесь видно, насколько модель расходится с фактом: она недооценила рынок примерно на четверть.</p></div>
   <div class="tw"><table>
-    <thead><tr><th>Статья</th><th>Best Western Premier Bangtao<br><span style="text-transform:none;letter-spacing:0">Банг Тао, Пхукет · 4★+</span></th><th>Katathani Phuket Beach<br><span style="text-transform:none;letter-spacing:0">Ката Ной, Пхукет · 5★</span></th><th>Araliya Beach Resort<br><span style="text-transform:none;letter-spacing:0">Унаватуна, Шри-Ланка · 5★</span></th></tr></thead>
+    <thead><tr><th>Статья</th><th>Best Western Premier Bangtao<br><span style="text-transform:none;letter-spacing:0;color:var(--crit)">нет туров на эти даты</span></th><th>Katathani Phuket Beach<br><span style="text-transform:none;letter-spacing:0;color:var(--crit)">нет туров на эти даты</span></th><th>Araliya Beach Resort<br><span style="text-transform:none;letter-spacing:0">Унаватуна, Шри-Ланка · 5★</span></th></tr></thead>
     <tbody>
       <tr><td>Категория номера</td><td>Two-bedroom Deluxe Family Suite</td><td>Two-Bedroom Teen Suite, 80 м²<br>2 спальни · 2 санузла · гостиная</td><td>Two Bedroom Apartment, 103 м²<br>2 спальни · 2 ванные</td></tr>
       <tr><td>Перелёт, трансфер, страховка</td><td class="num">390 000</td><td class="num">390 000</td><td class="num">в смете</td></tr>
@@ -213,7 +352,7 @@ footer{margin-top:64px;padding-top:22px;border-top:1px solid var(--line);font-si
 </section>
 
 <section>
-  <div class="shead"><span class="n">04</span><h2>Разбор присланной подборки: 18 туров</h2></div>
+  <div class="shead"><span class="n">05</span><h2>Разбор присланной подборки: 18 туров</h2></div>
   <p class="lede">Требование «две комнаты в номере» выполняет одна позиция — и она за бюджетом. Остальное — однокомнатные номера, поданные как семейные.</p>
   <div class="tw"><table>
     <thead><tr><th>Отель</th><th>Цена, ₽</th><th>Заявлено</th><th>Проверка</th></tr></thead>
@@ -242,7 +381,7 @@ footer{margin-top:64px;padding-top:22px;border-top:1px solid var(--line);font-si
 </section>
 
 <section>
-  <div class="shead"><span class="n">05</span><h2>Что не входит в цену тура</h2></div>
+  <div class="shead"><span class="n">06</span><h2>Что не входит в цену тура</h2></div>
   <div class="tw"><table>
     <thead><tr><th>Статья</th><th>На семью из 4</th><th>Комментарий</th></tr></thead>
     <tbody>
@@ -258,20 +397,22 @@ footer{margin-top:64px;padding-top:22px;border-top:1px solid var(--line);font-si
 </section>
 
 <section>
-  <div class="shead"><span class="n">06</span><h2>Что спросить у турагента на этой неделе</h2></div>
-  <p class="lede">Раннее бронирование у большинства операторов закрывается 30 сентября. По Таиланду зимних броней уже на треть больше прошлогоднего, по Фукуоку часть отелей остановила продажи на новогодние даты.</p>
+  <div class="shead"><span class="n">07</span><h2>Что спросить у турагента на этой неделе</h2></div>
+  <p class="lede">Раннее бронирование у большинства операторов закрывается 30 сентября. По Таиланду зимних броней уже на треть больше прошлогоднего. А главное — у вас ровно одна рабочая дата вылета и конечный блок мест на ней.</p>
   <ol class="act">
-    <li><b>Пхукет, вылет 28 декабря, Nordwind.</b> Категории: Two-bedroom Deluxe Family Suite в Best Western Premier Bangtao и Two-Bedroom Teen Suite в Katathani. Это цепочка PEGAS Touristik.</li>
-    <li><b>Норма багажа в пакете — письменно.</b> Тариф «Лайт» у Nordwind не даёт багажа совсем. На 12 дней вчетвером это реальная проблема, а не формальность.</li>
-    <li><b>Стоимость обязательного гала-ужина 31 декабря</b> и считают ли двенадцатилетнего взрослым. Разброс на семью от 30 до 62 тысяч.</li>
-    <li><b>Если всё-таки ОАЭ</b> — пересчёт Rixos Al Mairid в категориях One Bedroom Premium Suite и Two Bedroom Deluxe Suite; письменное подтверждение отеля, сколько бассейнов греется с 28.12 по 08.01; подтверждение, что реновация корпуса завершена, а детский клуб после модернизации открыт.</li>
-    <li><b>Тот же отель у других операторов.</b> Coral, Anex, Let's Fly, «Интурист», Space Travel, FUN&amp;SUN — разброс цен на идентичный отель и дату достигает 15–25 %.</li>
-    <li><b>Бронь с предоплатой 30–50 %.</b> Цена фиксируется, деньги не выводятся целиком. Двухкомнатные категории на Новый год не «горят» никогда — их разбирают первыми.</li>
+    <li><b>Centara Kata Resort Phuket, вылет 28 декабря, возврат 9 января, 12 ночей.</b> Состав — 2 взрослых + дети 9 и 12. На level.travel это 1 122 069 ₽ с завтраками. Спросить, что даёт агент, и сравнить.</li>
+    <li><b>Какая категория номера идёт по этой цене.</b> Нужна <b>one bedroom premium suite</b> — спальня плюс отдельная гостиная. Это единственное непроверенное место во всём расчёте.</li>
+    <li><b>Почему 12 ночей дешевле 11.</b> Возврат 9 января против 8 января даёт минус 231 778 ₽. Попросить подтвердить, что блок на 9-е действительно есть, и не тянуть — он конечный.</li>
+    <li><b>Norma багажа в пакете — письменно.</b> У Nordwind тариф «Лайт» не даёт багажа совсем, только 10 кг ручной клади. На 12 дней вчетвером это реальная проблема.</li>
+    <li><b>Стоимость обязательного гала-ужина 31 декабря</b> и считают ли двенадцатилетнего взрослым.</li>
+    <li><b>Katathani, Best Western Premier Bangtao и Kora Beach не предлагать</b> — на 26–30 декабря туров туда нет ни у кого. Если агент их покажет, значит смотрит другие даты.</li>
+    <li><b>Тот же отель у других операторов.</b> Coral, Anex, Let\'s Fly, «Интурист», Space Travel, FUN&amp;SUN — разброс на идентичный отель и дату достигает 15–25 %.</li>
+    <li><b>Бронь с предоплатой 30–50 %.</b> Цена фиксируется, деньги не выводятся целиком.</li>
   </ol>
 </section>
 
 <footer>
-  Подготовлено 12 сентября 2026 по трём подборкам турагента и собственной проверке 12 направлений. Температура воды — seatemperature.info, seatemperature.org, weather-stats.com, Weather Atlas; минимум два независимых источника на курорт. Цены на проживание — расчётная модель от проверяемых якорей, а не котировка: тарифы на конкретные даты закрыты антибот-защитой агрегаторов. Страница закрыта от индексации.
+  Подготовлено 12 сентября 2026 по трём подборкам турагента и собственной проверке 12 направлений. Температура воды — seatemperature.info, seatemperature.org, weather-stats.com, Weather Atlas; минимум два независимых источника на курорт. Цены в разделе 01 сняты с level.travel 12.09.2026 headless-браузером по 63 отелям под состав «2 взрослых + дети 9 и 12», вылет Казань 28.12.2026; капча не обходилась. Цены в разделе 04 — более ранняя расчётная модель, оставленная для сравнения. Страница закрыта от индексации.
 </footer>
 
 </div>
